@@ -51,7 +51,7 @@ CREATE TABLE library.Authors (
 CREATE TABLE library.Books (
 	book_id int,
     author_id int,
-    bpok_title varchar(255),
+    book_title varchar(255),
     genre varchar(255),
     publisher_id int,
     book_type varchar(255),
