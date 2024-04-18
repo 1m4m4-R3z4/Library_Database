@@ -21,7 +21,7 @@ CREATE TABLE library.Publishers (
 CREATE TABLE library.Availability (
 	availability_id int,
     borrower_id int,
-	availability int,
+	availability_status int,
     PRIMARY KEY (availability_id),
 	FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
