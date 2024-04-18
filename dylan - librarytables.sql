@@ -21,10 +21,9 @@ CREATE TABLE library.Publishers (
 CREATE TABLE library.Availability (
 	availability_id int,
     borrower_id int,
-    number_of_books int,
-    number_of_borrows int,
-	book_subject varchar(255), # might also be better under Books table/redundant with genre
-    PRIMARY KEY (availability_id)
+	availability int,
+    PRIMARY KEY (availability_id),
+	FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
 
 # Creates Librarians table
