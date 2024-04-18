@@ -3,7 +3,7 @@ borrower_id int,
 borrower_name varchar (100),
 major varchar (100),
 return_date varchar (100),
-PRIMARY KEY (patient_id)
+PRIMARY KEY (borrower_id)
 );
 CREATE TABLE library_database.availability (
 availability_id int,
