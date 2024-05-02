@@ -56,6 +56,7 @@ CREATE TABLE library.Books (
     genre varchar(255),
     publisher_id int,
     book_type varchar(255),
+    status varchar(255),
     PRIMARY KEY (book_id),
     FOREIGN KEY (author_id) REFERENCES Authors(author_id),
     FOREIGN KEY (publisher_id) REFERENCES Publishers(publisher_id)
