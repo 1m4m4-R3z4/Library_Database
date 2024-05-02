@@ -14,31 +14,37 @@ public class Publisher {
             ResultSet result = stm.executeQuery(query); // Execute the query
 
             while (result.next()) {
-                System.out.println("Book ID: " + result.getInt("book_id"));
-                System.out.println("Book Name: " + result.getString("book_name"));
-                System.out.println("Author ID: " + result.getString("author_id"));
-                System.out.println("Genre: " + result.getString("genre"));
                 System.out.println("Publisher ID: " + result.getInt("publisher_id"));
-                System.out.println("Book Type: " + result.getString("book_type"));
-                System.out.println("Status: " + result.getString("status"));
+                System.out.println("Publisher Name: " + result.getString("publisher_name"));
+                System.out.println("Publisher Focus: " + result.getString("publisher_focus"));
+                System.out.println("Publish Date: " + result.getString("publish_date"));
+                System.out.println("ISBN: " + result.getString("isbn"));
             }
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-    public static void addPublisher(int bookID, String bookName, int authorID, String genre, int publisherID, String bookType, String status) {
+    public static void addPublisher() {
+        Scanner getInput = new Scanner(System.in);
+        System.out.println("Enter Publisher ID: ");
+        int publisherID = getInput.nextInt();
+        System.out.println("Enter Publisher Name: ");
+        String publisherName = getInput.next();
+        System.out.println("What subject/genre does the publishing company work for?: ");
+        String publisherFocus = getInput.next();
+        System.out.println("When was the book published?: ");
+        String publisherDate = getInput.next();
+        System.out.println("Enter ISBN number: ");
+        String isbn = getInput.next();
         try {
             Connection connection = Database.connection;
-            String query = "INSERT INTO books VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO books VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stm = connection.prepareStatement(query);
-
-            stm.setInt(1, bookID);
-            stm.setInt(2, authorID);
-            stm.setString(3, bookName);
-            stm.setString(4, genre);
-            stm.setInt(5, publisherID);
-            stm.setString(6, bookType);
-            stm.setString(7,status);
+            stm.setInt(1, publisherID);
+            stm.setString(2, publisherName);
+            stm.setString(3, publisherFocus);
+            stm.setString(4, publisherDate);
+            stm.setString(5,isbn);
             stm.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
