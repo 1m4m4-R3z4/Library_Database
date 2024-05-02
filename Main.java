@@ -1,6 +1,8 @@
 package com.CSCI300;
 import java.util.*;
 
+import static com.CSCI300.Librarian.*;
+import static com.CSCI300.Publisher.addPublisher;
 import static com.CSCI300.Publisher.getPublisher;
 
 public class Main {
@@ -34,13 +36,13 @@ public class Main {
     }
 
     public static void borrowerBookSearch() {
-
+        //This is where the borrower will look through the catalog and select a book based on what subject they choose
 
     }
 
     public static void librarianBookSearch() {
         // Print all books
-        getBooks();
+        getBorrowedBooks();
         // Show all books currently being borrowed
         Librarian.getBorrowedBooks();
         // Ask them if they would like to add a new book to the books table
@@ -77,11 +79,20 @@ public class Main {
             getPublisher();
             System.out.println("Would you like to add a publisher?: ");
             whyen = keyboard.next();
+            addPublisher();
+            if (whyen.equalsIgnoreCase("no")){
+                break;
+            }
         }
         String why_en = keyboard.next();
         while (why_en.equalsIgnoreCase("yes")){
-
+                getLibrarian();
             System.out.println("Would you like to add a librarian?: ");
+            why_en = keyboard.next();
+            addLibrarian();
+            if (why_en.equalsIgnoreCase("no")){
+                break;
+            }
         }
         // Allow them to enter a borrower's ID and print a list of recommended books for them based on their borrowed books
 
