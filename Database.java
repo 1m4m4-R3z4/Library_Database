@@ -9,7 +9,7 @@ class Database {
     public static void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/library?serverTimezone=EST", "root", "database28");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/library_database?serverTimezone=EST", "root", "CSCI-300datamng");
         } catch (Exception e) {
             System.out.println(e);
         }
